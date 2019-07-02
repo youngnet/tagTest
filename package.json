@@ -10,6 +10,8 @@
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "current-script-polyfill": "^1.0.0",
+    "element-ui": "^2.10.0",
+    "moment": "^2.24.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
@@ -17,8 +19,12 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
+    "babel-plugin-component": "^1.1.1",
+    "compression-webpack-plugin": "^3.0.0",
+    "ignore-emit-webpack-plugin": "^1.0.2",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "webpack-bundle-analyzer": "^3.3.2"
   }
 }

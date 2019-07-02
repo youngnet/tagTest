@@ -1,4 +1,17 @@
-const { VUE_APP_PREFIX_URL, PROXY_URL } = process.env;
+const { VUE_APP_PREFIX_URL, PROXY_URL, NODE_ENV, ANALYZE } = process.env;
+const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
+// const CompressionPlugin = require("compression-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+    .BundleAnalyzerPlugin;
+const plugins = [];
+if (ANALYZE === "true") {
+    plugins.push(new BundleAnalyzerPlugin());
+}
+if (NODE_ENV === "production") {
+    plugins.push(new IgnoreEmitPlugin(/^\.\/locale$/, /moment$/))
+    // plugins.push(new CompressionPlugin());
+}
+
 module.exports = {
     devServer: {
         open: true,
@@ -14,5 +27,18 @@ module.exports = {
         },
         before: app => {}
     },
-    chainWebpack: config => {}
+    configureWebpack: {
+        plugins
+    }
+    // chainWebpack: config => {
+    //     config.optimization.splitChunks({
+    //         chunks: "all",
+    //         minSize: 20000,
+    //         minChunks: 1,
+    //         maxAsyncRequests: 5,
+    //         maxInitialRequests: 3
+    //         // name: false
+    //     });
+    //     // config.optimization.runtimeChunk = true;
+    // }
 };

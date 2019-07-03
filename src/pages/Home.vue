@@ -1,6 +1,8 @@
 <template>
   <div class="home">
     Home
+    <router-link to="/about?id=1">11111</router-link>
+    <router-link to="/about?id=2">22222</router-link>
     <div>{{999|toFixed}}</div>
     <el-table
       v-loading="loading"

@@ -6,15 +6,19 @@
     >
       <el-col
         class="nav-line"
-        :span="5"
+        :span="4"
       >
-        <h5>ICON</h5>
+        <div class="logo">
+          <img class="icon" src="../assets/images/logo.png" alt="">
+          <h1>一笑而过</h1>
+        </div>
         <el-menu
-          default-active="2"
           class="el-menu-vertical-me"
           @open="handleOpen"
           @close="handleClose"
-          
+          background-color="#011528"
+          text-color="#fff"
+          active-text-color="#ffd04b"
           :router="true"
         >
           <el-submenu index="1">
@@ -49,7 +53,7 @@
           </el-menu-item>
         </el-menu>
       </el-col>
-      <el-col :span="18">
+      <el-col :span="20">
         <slot />
       </el-col>
     </el-row>
@@ -92,6 +96,22 @@ export default {
     .el-menu-vertical-me {
       flex: 1;
     }
+  }
+}
+.logo {
+  display: flex;
+  height: 64px;
+  align-items: center;
+  background-color: #02223f;
+  .icon {
+    width: 32px;
+    height: 32px;
+    margin-left: 30px;
+  }
+  h1{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 20px;
   }
 }
 </style>

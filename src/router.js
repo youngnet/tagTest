@@ -5,7 +5,7 @@ const About = () => import(/* webpackChunkName: "about" */ "./pages/About.vue");
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
     mode: "history",
     base: process.env.BASE_URL,
     routes: [
@@ -28,3 +28,10 @@ export default new Router({
         }
     ]
 });
+
+router.beforeEach((to, from, next) => {
+    console.log("router to ->", to.fullPath);
+    next();
+});
+
+export default router;

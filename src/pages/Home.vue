@@ -36,8 +36,9 @@ import { Table, TableColumn } from "element-ui";
 export default {
   name: "home",
   async created() {
-    await getRole();
-    await getData();
+    this.eventLoop()
+    let res = await getRole();
+    let r = await getData();
     this.loading = false;
   },
   components: {
@@ -70,6 +71,23 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    eventLoop() {
+      new Promise(resolve => {
+        resolve();
+      })
+        .then(() => {
+          new Promise(resolve => {
+            resolve();
+          }).then(() => {
+            console.log(777);
+          });
+        })
+        .then(() => {
+          console.log(666);
+        });
+    }
   }
 };
 </script>

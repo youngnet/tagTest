@@ -1,31 +1,12 @@
 <template>
   <div class="home">
     Home
-    <router-link to="/about?id=1">11111</router-link>
-    <router-link to="/about?id=2">22222</router-link>
-    <div>{{999|toFixed}}</div>
-    <el-table
-      v-loading="loading"
-      :data="tableData"
-      style="width: 100%"
-    >
-      <el-table-column
-        prop="date"
-        label="日期"
-        width="180"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="姓名"
-        width="180"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-      >
-      </el-table-column>
+        <div>{{999|toFixed}}</div>
+    <button @click="clickb">123124124</button>
+    <el-table v-loading="loading" :data="tableData" style="width: 100%">
+      <el-table-column prop="date" label="日期" width="180"></el-table-column>
+      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+      <el-table-column prop="address" label="地址"></el-table-column>
     </el-table>
   </div>
 </template>
@@ -33,10 +14,10 @@
 <script>
 import { getData, getRole } from "../api/home";
 import { Table, TableColumn } from "element-ui";
+import { mapState } from "vuex";
 export default {
   name: "home",
   async created() {
-    this.eventLoop()
     let res = await getRole();
     let r = await getData();
     this.loading = false;
@@ -72,6 +53,8 @@ export default {
       ]
     };
   },
+  computed: {
+  },
   methods: {
     eventLoop() {
       new Promise(resolve => {
@@ -87,6 +70,9 @@ export default {
         .then(() => {
           console.log(666);
         });
+    },
+    clickb() {
+      store.commit("reset");
     }
   }
 };

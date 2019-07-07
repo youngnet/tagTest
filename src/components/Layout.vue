@@ -1,15 +1,9 @@
 <template>
   <div>
-    <el-row
-      :gutter="16"
-      class="tac"
-    >
-      <el-col
-        class="nav-line"
-        :span="4"
-      >
-        <div class="logo">
-          <img class="icon" src="../assets/images/logo.png" alt="">
+    <el-row :gutter="16" class="tac">
+      <el-col class="nav-line" :span="4">
+        <div class="logo" :collapse="isCollapse">
+          <img class="icon" src="../assets/images/logo.png" alt />
           <h1>一笑而过</h1>
         </div>
         <el-menu
@@ -19,7 +13,9 @@
           background-color="#011528"
           text-color="#fff"
           active-text-color="#ffd04b"
+          :collapse-transition="true"
           :router="true"
+          :collapse="isCollapse"
         >
           <el-submenu index="1">
             <template slot="title">
@@ -54,6 +50,8 @@
         </el-menu>
       </el-col>
       <el-col :span="20">
+        <Header :isCollapse="isCollapse" @changeCollapse="changeCollapse" />
+        <BreadCrumb />
         <slot />
       </el-col>
     </el-row>
@@ -61,10 +59,12 @@
 </template>
 <script>
 import { Row, Col, Menu, MenuItem, MenuItemGroup, Submenu } from "element-ui";
+import Header from "../components/Header";
+import BreadCrumb from "../components/BreadCrumb";
 export default {
   data() {
     return {
-        
+      isCollapse: false
     };
   },
   methods: {
@@ -73,6 +73,9 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+    },
+    changeCollapse() {
+      this.isCollapse = !this.isCollapse;
     }
   },
   components: {
@@ -81,7 +84,9 @@ export default {
     "el-menu": Menu,
     "el-menu-item": MenuItem,
     "el-menu-item-group": MenuItemGroup,
-    "el-submenu": Submenu
+    "el-submenu": Submenu,
+    Header,
+    BreadCrumb
   }
 };
 </script>
@@ -108,7 +113,7 @@ export default {
     height: 32px;
     margin-left: 30px;
   }
-  h1{
+  h1 {
     color: #fff;
     font-size: 20px;
     margin-left: 20px;

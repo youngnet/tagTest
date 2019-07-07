@@ -11,13 +11,14 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [
         {
-            path: "/home",
-            redirect: "/"
+            path: "/",
+            redirect: "/home"
         },
         {
-            path: "/",
+            path: "/home",
             name: "home",
-            component: Home
+            component: Home,
+            meta: { title: "home" }
         },
         {
             path: "/about",
@@ -25,15 +26,19 @@ const router = new Router({
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: About
+            component: About,
+            meta: { title: "about" }
         },
         {
             path: "/copy",
             name: "copy",
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: Copy
+            children: [
+                {
+                    path: "/copy/1",
+                    component: Copy,
+                    meta: { title: "copy" }
+                }
+            ]
         }
     ]
 });

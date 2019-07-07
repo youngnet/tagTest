@@ -1,7 +1,7 @@
 import "current-script-polyfill";
 import Vue from "vue";
 import App from "./App.vue";
-import router from "./router";
+import router from "./routes";
 import store from "./store";
 import * as filters from "./utils/filters";
 import moment from "./assets/js/moment";

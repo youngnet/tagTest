@@ -1,6 +1,10 @@
 <template>
   <el-breadcrumb>
-    <el-breadcrumb-item v-for="(item,index) of navList" :key="index">{{item.title}}</el-breadcrumb-item>
+    <el-breadcrumb-item
+      :to="item.path"
+      v-for="(item,index) of navList"
+      :key="index"
+    >{{item.meta.title}}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 <script>
@@ -16,21 +20,29 @@ export default {
     elBreadcrumbItem: BreadcrumbItem
   },
   watch: {
-    $route(route) {
-      // console.log("TCL: $route -> route", route.matched);
-      const homeRoute = {
-        title: "home",
-        path: "/home"
-      };
-      const navList = route.matched.filter(
-        item => item.meta && item.meta.title
-      );
+    $route: {
+      handler(route) {
+        // console.log("TCL: $route -> route", route.matched);
+        const homeRoute = {
+          meta: { title: "home", icon: "home" },
+          path: "/home"
+        };
+        const navList = route.matched.filter(
+          item => item.meta && item.meta.title
+        );
 
-      if (navList.find(item => item.path !== "/home")) {
-        navList.unshift(homeRoute);
-      }
-      // console.log(navList);
-      this.navList = navList;
+        if (navList.find(item => item.path !== "/home")) {
+          navList.unshift(homeRoute);
+        }
+        console.log(navList);
+        this.navList = navList;
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    navItem(item) {
+      console.log("TCL: navigate -> item", item);
     }
   }
 };

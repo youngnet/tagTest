@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <i @click="clickIcon" v-if="isCollapse" class="headerMenu el-icon-s-fold"></i>
-    <i @click="clickIcon" v-else class="headerMenu el-icon-s-unfold"></i>
+    <i @click="clickIcon" v-if="isCollapse" class="headerMenu el-icon-s-unfold"></i>
+    <i @click="clickIcon" v-else class="headerMenu el-icon-s-fold"></i>
     <el-dropdown>
       <span class="el-dropdown-link">admin</span>
       <el-dropdown-menu slot="dropdown">

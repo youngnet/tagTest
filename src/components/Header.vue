@@ -43,6 +43,7 @@ export default {
   justify-content: space-between;
   box-sizing: border-box;
   padding: 0 20px;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
   .headerMenu {
     font-size: 26px;
   }

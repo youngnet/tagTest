@@ -1,21 +1,80 @@
 <template>
   <div class="home">
-    <el-table v-loading="loading" :data="tableData" style="width: 100%">
-      <el-table-column prop="date" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column prop="date" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column prop="date" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column prop="date" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column prop="date" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
+    <el-table
+      v-loading="loading"
+      :data="tableData"
+      style="width: 100%"
+    >
+      <el-table-column
+        prop="date"
+        label="日期"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址"
+      ></el-table-column>
+      <el-table-column
+        prop="date"
+        label="日期"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址"
+      ></el-table-column>
+      <el-table-column
+        prop="date"
+        label="日期"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址"
+      ></el-table-column>
+      <el-table-column
+        prop="date"
+        label="日期"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址"
+      ></el-table-column>
+      <el-table-column
+        prop="date"
+        label="日期"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        width="180"
+      ></el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址"
+      ></el-table-column>
     </el-table>
   </div>
 </template>
@@ -23,6 +82,8 @@
 <script>
 import { getData, getRole } from "../api/home";
 import { Table, TableColumn } from "element-ui";
+import Layout from '@/components/Layout';
+import router from "../routes";
 import { mapState } from "vuex";
 export default {
   name: "home",
@@ -62,8 +123,7 @@ export default {
       ]
     };
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     eventLoop() {
       new Promise(resolve => {

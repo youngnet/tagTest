@@ -120,6 +120,7 @@ export default {
       margin-left: 30px;
     }
     h1 {
+      font-family: "Myriad Pro","Helvetica Neue",Arial,Helvetica,sans-serif;
       color: #fff;
       font-size: 20px;
       margin-left: 20px;

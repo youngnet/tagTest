@@ -42,8 +42,12 @@ export default {
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  padding: 0 20px;
   .headerMenu {
     font-size: 26px;
+  }
+  .el-dropdown-link{
+    cursor: pointer;
   }
 }
 </style>

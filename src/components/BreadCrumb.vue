@@ -1,10 +1,15 @@
 <template>
-  <el-breadcrumb>
+  <el-breadcrumb class="breadcrumb">
     <el-breadcrumb-item
-      :to="item.path"
       v-for="(item,index) of navList"
       :key="index"
-    >{{item.meta.title}}</el-breadcrumb-item>
+    >
+      <span v-if="item.redirect==='noRedirect'">{{item.meta.title}}</span>
+      <router-link
+        v-else
+        :to="item.path"
+      >{{item.meta.title}}</router-link>
+    </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 <script>
@@ -22,9 +27,8 @@ export default {
   watch: {
     $route: {
       handler(route) {
-        // console.log("TCL: $route -> route", route.matched);
         const homeRoute = {
-          meta: { title: "home", icon: "home" },
+          meta: { title: "首页", icon: "home" },
           path: "/home"
         };
         const navList = route.matched.filter(
@@ -34,18 +38,16 @@ export default {
         if (navList.find(item => item.path !== "/home")) {
           navList.unshift(homeRoute);
         }
-        console.log(navList);
         this.navList = navList;
       },
       immediate: true
     }
   },
-  methods: {
-    navItem(item) {
-      console.log("TCL: navigate -> item", item);
-    }
-  }
+  methods: {}
 };
 </script>
 <style scoped lang='less'>
+.breadcrumb{
+  padding: 15px 20px;
+}
 </style>

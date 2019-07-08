@@ -292,3 +292,11 @@ export const allTeacherJoint = section => {
         return teachers.join(" ");
     }
 };
+
+/**
+ * @param {string} path
+ * @returns {Boolean}
+ */
+export function isExternal(path) {
+    return /^(https?:|mailto:|tel:)/.test(path);
+}

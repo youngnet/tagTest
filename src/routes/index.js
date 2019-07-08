@@ -6,12 +6,6 @@ Vue.use(Router);
 /* Layout */
 import Layout from "../components/Layout";
 
-/* Router Modules */
-// import componentsRouter from './modules/components'
-// import chartsRouter from './modules/charts'
-// import tableRouter from './modules/table'
-// import nestedRouter from './modules/nested'
-
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -56,33 +50,25 @@ export const constantRoutes = [
     //     hidden: true
     //   },
     //   {
-    //     path: '/auth-redirect',
-    //     component: () => import('@/views/login/auth-redirect'),
-    //     hidden: true
-    //   },
-    //   {
-    //     path: '/404',
-    //     component: () => import('@/views/error-page/404'),
-    //     hidden: true
-    //   },
-    //   {
     //     path: '/401',
     //     component: () => import('@/views/error-page/401'),
     //     hidden: true
     //   },
     {
         path: "/",
-        redirect: "/home"
+        redirect: "/home",
+        hidden: true
     },
     {
         path: "/home",
         component: Layout,
+        // meta: { title: "home", icon: "home", affix: true },
         children: [
             {
-                path: "",
+                path: "/home",
                 component: () => import("../pages/Home"),
                 name: "home",
-                meta: { title: "home", icon: "home", affix: true }
+                meta: { title: "首页", icon: "home", affix: true }
             }
         ]
     },
@@ -90,19 +76,99 @@ export const constantRoutes = [
         path: "/copy",
         component: Layout,
         meta: { title: "copy", icon: "copy", affix: true },
+        redirect: "noRedirect",
         children: [
             {
-                path: "1",
+                path: "comment",
                 component: () => import("../pages/operation/Comment"),
                 name: "Comment",
                 meta: { title: "Comment", icon: "Comment", affix: true }
             },
             {
-                path: "2",
+                path: "groupbuy",
                 component: () => import("../pages/operation/GroupBuy"),
-                name: "copy",
-                meta: { title: "copy", icon: "copy", affix: true }
-            }
+                name: "groupbuy",
+                meta: { title: "groupbuy", icon: "groupbuy", affix: true }
+            },
+            {
+                path: "comment1",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment2",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment3",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment4",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment1123",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment124",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment5",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment6",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment7",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment55",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment8",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment9",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+            {
+                path: "comment11",
+                component: () => import("../pages/operation/Comment"),
+                name: "Comment",
+                meta: { title: "Comment", icon: "Comment", affix: true }
+            },
+
         ]
     },
     {
@@ -110,7 +176,7 @@ export const constantRoutes = [
         component: Layout,
         children: [
             {
-                path: "",
+                path: "/about",
                 component: () => import("../pages/About"),
                 name: "about",
                 meta: { title: "about", icon: "about", affix: true }
@@ -127,22 +193,6 @@ export const constantRoutes = [
     //             component: () => import("@/views/dashboard/index"),
     //             name: "Dashboard",
     //             meta: { title: "Dashboard", icon: "dashboard", affix: true }
-    //         }
-    //     ]
-    // },
-    // {
-    //     path: "/documentation",
-    //     component: Layout,
-    //     children: [
-    //         {
-    //             path: "index",
-    //             component: () => import("@/views/documentation/index"),
-    //             name: "Documentation",
-    //             meta: {
-    //                 title: "Documentation",
-    //                 icon: "documentation",
-    //                 affix: true
-    //             }
     //         }
     //     ]
     // },
